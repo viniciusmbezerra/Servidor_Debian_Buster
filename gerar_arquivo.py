@@ -4,13 +4,15 @@ def gerar_arquivo(caminho, dados):
 
     nome_arquivo = caminho.split("/")[-1]
 
-    modelo = open(caminho, "r")
+    # lendo arquivo
+    modelo = open(PASTA_APP+f"/arquivos/{nome_arquivo}", "r")
     texto = modelo.read()
     modelo.close()
 
     for chave in dados.keys():
         texto = texto.replace(chave, dados[chave])
 
+    # alterando arquivo
     try:
         arquivo = open(f"{caminho}", "w")
         arquivo.write(texto)
