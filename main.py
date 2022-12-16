@@ -1,33 +1,26 @@
 import os
-from gerar_arquivo import gerar_arquivo
+from utils import gerar_arquivo
+from datetime import date
 
 os.system("apt install openssh-client openssh-server -y")
 os.system("apt install bind9 bind9-doc -y")
 os.system("apt install apache2 apache2-doc -y")
 
 dados = {
-    "DNS": "vinicius.com", 
-    "SERIAL": "2022121601", 
-    "IP_NS": "10.0.0.20", 
-    "PREFIXO": "vinicius", 
-    "PORTA_PADRAO": "20", 
+    # dados manuais
+    "DNS": "", 
+    "IP_ADDRESS": "", 
+    "NETMASK": "", 
+    "GATEWAY": "",
+    "NETWORK": "", 
+    "BROADCAST": "",
+    # dados automáticos
+    "PREFIXO": "",
+    "PORTA_PADRAO": "",
     "PORTA_ROUTER": "1",
-    "NETMASK": "255.255.255.0", 
-    "GATEWAY": "10.0.0.1", 
-    "NETWORK": "10.0.0.0", 
-    "BROADCAST": "10.0.0.255",
-    "IP_INVERSO": "0.0.10",
+    "IP_INVERSO": "",
+    "SERIAL": f'{date.today().year}{date.today().month}{date.today().day}01',
 }
-
-# PASTA_APP = os.path.dirname(__file__)
-# arquivos = [
-#     PASTA_APP+"\\arquivos\\interfaces",
-#     PASTA_APP+"\\arquivos\\resolv.conf",
-#     PASTA_APP+"\\arquivos\\sshd_config",
-#     PASTA_APP+"\\arquivos\\db.DNS_EXAMPLE",
-#     PASTA_APP+"\\arquivos\\db.IP_EXAMPLE",
-#     PASTA_APP+"\\arquivos\\named.conf.local",
-# ]
 
 arquivos = [
     "/etc/network/interfaces",
@@ -39,12 +32,27 @@ arquivos = [
 ]
 
 os.system("clear")
-for chave in dados.keys():
-    dados[chave] = input(f"INFORME O SEU {chave}: ")
+
+print("\nINFORME OS SEGUINTES DADOS ABAIXO:\n")
+
+for i in range(0,6):
+    chave = dados.keys()[i]
+    dados[chave] = input(f"{chave}: ")
+
+dados["PREFIXO"] = dados["DNS"].replace(".com", "")
+dados["IP_INVERSO"] = ".".join(dados["IP_ADDRESS"].split(".")[:-1][::-1])
+dados["PORTA_PADRAO"] = dados["IP_ADDRESS"].split(".")[-1]
+
+print("\nOs dados abaixo são gerados automaticamente, você pode altera-los.\nSe não quiser alterar aperte enter.\n")
+for i in range(6, 12):
+    chave = dados.keys()[i]
+    aux = input(f"{chave} (valor atual= {dados[chave]}): ")
+    if len(aux):
+        dados[chave] = aux
 
 os.system("clear")
 
 for arq in arquivos:
     gerar_arquivo(arq, dados)
 
-print("Configuração concluida com sucesso!\n")
+print("\nConfiguração concluída com sucesso!\n")

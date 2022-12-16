@@ -11,8 +11,8 @@ $TTL    3D
 @               NS      ns
 @               MX      10      mail
 
-ns              A       IP_NS
-mail            A       IP_NS
+ns              A       IP_ADDRESS
+mail            A       IP_ADDRESS
 
-DNS.    A       IP_NS
-PREFIXO         A       IP_NS
+DNS.    A       IP_ADDRESS
+PREFIXO         A       IP_ADDRESS
