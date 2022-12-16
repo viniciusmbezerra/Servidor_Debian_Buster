@@ -44,7 +44,7 @@ dados["IP_INVERSO"] = ".".join(dados["IP_ADDRESS"].split(".")[:-1][::-1])
 dados["PORTA_PADRAO"] = dados["IP_ADDRESS"].split(".")[-1]
 
 print("\nOs dados abaixo são gerados automaticamente, você pode altera-los.\nSe não quiser alterar aperte enter.\n")
-for i in range(6, 12):
+for i in range(6, 11):
     chave = list(dados.keys())[i]
     aux = input(f"{chave} (valor atual= {dados[chave]}): ")
     if len(aux):
