@@ -13,18 +13,13 @@ def gerar_arquivo(caminho, dados):
         texto = texto.replace(chave, dados[chave])
 
     # alterando arquivo
-    try:
-        arquivo = open(f"{caminho}", "w")
-        arquivo.write(texto)
-        arquivo.close()
-    except:
-        if nome_arquivo=="db.DNS_EXAMPLE":
-            caminho = caminho.replace("DNS_EXAMPLE", dados["DNS"])
-        if nome_arquivo=="db.IP_EXAMPLE":
-            caminho = caminho.replace("IP_EXAMPLE", dados["IP_INVERSO"])
-        
-        arquivo = open(f"{caminho}", "a")
-        arquivo.write(texto)
-        arquivo.close()
+    if nome_arquivo=="db.DNS_EXAMPLE":
+        caminho = caminho.replace("DNS_EXAMPLE", dados["DNS"])
+    if nome_arquivo=="db.IP_EXAMPLE":
+        caminho = caminho.replace("IP_EXAMPLE", dados["IP_INVERSO"])
+
+    arquivo = open(f"{caminho}", "w")
+    arquivo.write(texto)
+    arquivo.close()
 
     print(f"\n{caminho} -- configurado com sucesso")
