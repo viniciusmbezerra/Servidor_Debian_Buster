@@ -18,12 +18,11 @@ def gerar_arquivo(caminho, dados):
         arquivo.write(texto)
         arquivo.close()
     except:
-        if nome_arquivo=="DNS_EXAMPLE":
+        if nome_arquivo=="db.DNS_EXAMPLE":
             caminho = caminho.replace("DNS_EXAMPLE", dados["DNS"])
-        if nome_arquivo=="IP_EXAMPLE":
+        if nome_arquivo=="db.IP_EXAMPLE":
             caminho = caminho.replace("IP_EXAMPLE", dados["IP_INVERSO"])
         
         arquivo = open(f"{caminho}", "a")
         arquivo.write(texto)
         arquivo.close()
-    

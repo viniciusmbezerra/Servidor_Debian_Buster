@@ -38,5 +38,9 @@ arquivos = [
     "/etc/bind/named.conf.local",
 ]
 
+os.system("clear")
+for chave in dados.keys():
+    dados[chave] = input(f"INFORME O SEU {chave}")
+
 for arq in arquivos:
     gerar_arquivo(arq, dados)
