@@ -36,7 +36,7 @@ os.system("clear")
 print("\nINFORME OS SEGUINTES DADOS ABAIXO:\n")
 
 for i in range(0,6):
-    chave = dados.keys()[i]
+    chave = list(dados.keys())[i]
     dados[chave] = input(f"{chave}: ")
 
 dados["PREFIXO"] = dados["DNS"].replace(".com", "")
@@ -45,7 +45,7 @@ dados["PORTA_PADRAO"] = dados["IP_ADDRESS"].split(".")[-1]
 
 print("\nOs dados abaixo são gerados automaticamente, você pode altera-los.\nSe não quiser alterar aperte enter.\n")
 for i in range(6, 12):
-    chave = dados.keys()[i]
+    chave = list(dados.keys())[i]
     aux = input(f"{chave} (valor atual= {dados[chave]}): ")
     if len(aux):
         dados[chave] = aux
