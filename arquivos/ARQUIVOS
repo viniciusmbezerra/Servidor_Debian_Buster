@@ -1,0 +1,11 @@
+nano /etc/network/interfaces
+
+nano /etc/resolv.conf
+
+nano /etc/ssh/sshd_config
+
+nano /etc/bind/db.vinicius.com
+
+nano /etc/bind/db.0.0.10
+
+nano /etc/bind/named.conf.local

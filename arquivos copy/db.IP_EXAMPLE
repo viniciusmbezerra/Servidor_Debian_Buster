@@ -1,0 +1,16 @@
+; BIND zone 
+
+$TTL    3D
+@       in      SOA     @               root.DNS.(
+                        SERIAL      ; serial
+                        8H              ; refresh
+                        2H              ; retry
+                        4w              ; expire
+                        1D )            ; minimum
+
+@               NS      ns.DNS.
+
+PORTA_PADRAO     PTR     PREFIXO.DNS.
+PORTA_PADRAO     PTR     ns.DNS.
+PORTA_PADRAO     PTR     mail.DNS.
+PORTA_ROUTER       PTR     router.DNS.

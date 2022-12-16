@@ -1,0 +1,18 @@
+; BIND zone para DNS
+
+$TTL    3D
+@       in      SOA     @               root.DNS.(
+                        SERIAL      ; serial
+                        8H              ; refresh
+                        2H              ; retry
+                        4w              ; expire
+                        1D )            ; minimum
+
+@               NS      ns
+@               MX      10      mail
+
+ns              A       IP_NS
+mail            A       IP_NS
+
+DNS.    A       IP_NS
+PREFIXO         A       IP_NS
