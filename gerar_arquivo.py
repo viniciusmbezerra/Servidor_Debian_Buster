@@ -26,3 +26,5 @@ def gerar_arquivo(caminho, dados):
         arquivo = open(f"{caminho}", "a")
         arquivo.write(texto)
         arquivo.close()
+
+    print(f"\n{caminho} -- configurado com sucesso")

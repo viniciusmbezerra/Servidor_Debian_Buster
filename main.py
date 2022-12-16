@@ -40,7 +40,11 @@ arquivos = [
 
 os.system("clear")
 for chave in dados.keys():
-    dados[chave] = input(f"INFORME O SEU {chave}")
+    dados[chave] = input(f"INFORME O SEU {chave}: ")
+
+os.system("clear")
 
 for arq in arquivos:
     gerar_arquivo(arq, dados)
+
+print("Configuração concluida com sucesso!\n")
