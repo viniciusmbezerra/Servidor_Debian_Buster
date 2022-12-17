@@ -1,5 +1,5 @@
 import os
-from utils import gerar_arquivo
+from utils import gerar_arquivo, calc_dados_automaticos
 from datetime import date
 
 os.system("apt install openssh-client openssh-server -y")
@@ -11,11 +11,11 @@ dados = {
     # dados manuais
     "DNS": "", 
     "IP_ADDRESS": "",
-    "NETMASK": "", 
+    "NETMASK": "",
+    # dados automáticos
     "GATEWAY": "",
     "NETWORK": "", 
     "BROADCAST": "",
-    # dados automáticos
     "PREFIXO": "",
     "PORTA_PADRAO": "",
     "PORTA_ROUTER": "1",
@@ -36,16 +36,14 @@ os.system("clear")
 
 print("\nINFORME OS SEGUINTES DADOS ABAIXO:\n")
 
-for i in range(0,6):
+for i in range(0,3):
     chave = list(dados.keys())[i]
     dados[chave] = input(f"{chave}: ")
 
-dados["PREFIXO"] = dados["DNS"].replace(".com", "")
-dados["IP_INVERSO"] = ".".join(dados["IP_ADDRESS"].split(".")[:-1][::-1])
-dados["PORTA_PADRAO"] = dados["IP_ADDRESS"].split(".")[-1]
+dados = calc_dados_automaticos(dados)
 
 print("\nOs dados abaixo são gerados automaticamente, você pode altera-los.\nSe não quiser alterar aperte enter.\n")
-for i in range(6, 11):
+for i in range(3, 11):
     chave = list(dados.keys())[i]
     aux = input(f"{chave} (valor atual= {dados[chave]}): ")
     if len(aux):
