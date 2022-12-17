@@ -45,6 +45,7 @@ python3 main.py
     apt install openssh-client openssh-server -y
     apt install bind9 bind9-doc -y
     apt install apache2 apache2-doc -y
+    apt-get install dnsutils -y
 ```
 
 * E cria e configura os seguintes arquivos do servidor Debian Buster
@@ -60,4 +61,5 @@ python3 main.py
     /etc/bind/db.IP_REVERSO
     
     /etc/bind/named.conf.local
+    
 ```

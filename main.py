@@ -5,11 +5,12 @@ from datetime import date
 os.system("apt install openssh-client openssh-server -y")
 os.system("apt install bind9 bind9-doc -y")
 os.system("apt install apache2 apache2-doc -y")
+os.system("apt-get install dnsutils -y")
 
 dados = {
     # dados manuais
     "DNS": "", 
-    "IP_ADDRESS": "", 
+    "IP_ADDRESS": "",
     "NETMASK": "", 
     "GATEWAY": "",
     "NETWORK": "", 
