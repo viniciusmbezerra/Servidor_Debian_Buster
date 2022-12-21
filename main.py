@@ -30,6 +30,7 @@ arquivos = [
     "/etc/bind/db.DNS_EXAMPLE",
     "/etc/bind/db.IP_EXAMPLE",
     "/etc/bind/named.conf.local",
+    "/etc/apache2/conf-available/security.conf",
 ]
 
 os.system("clear")

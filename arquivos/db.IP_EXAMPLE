@@ -1,4 +1,4 @@
-; BIND zone 
+; BIND zone para DNS
 
 $TTL    3D
 @       in      SOA     @               root.DNS.(
@@ -13,4 +13,6 @@ $TTL    3D
 PORTA_PADRAO     PTR     PREFIXO.DNS.
 PORTA_PADRAO     PTR     ns.DNS.
 PORTA_PADRAO     PTR     mail.DNS.
+PORTA_PADRAO     PTR     ftp.DNS.
+PORTA_PADRAO     PTR     www.DNS.
 PORTA_ROUTER       PTR     router.DNS.

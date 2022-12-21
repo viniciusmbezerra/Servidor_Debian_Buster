@@ -16,3 +16,6 @@ mail            A       IP_ADDRESS
 
 DNS.    A       IP_ADDRESS
 PREFIXO         A       IP_ADDRESS
+
+ftp             CNAME   server
+www             CNAME   server
